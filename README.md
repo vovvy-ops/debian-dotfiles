@@ -27,3 +27,4 @@ A clean and minimal i3 window manager setup on Debian with a red and black aesth
 ## Notes
 
 These dotfiles are tailored for a fast, minimal experience with a bold visual theme.
+It may look like it is using 2GB ram but it is not - that is because I am running servers...it should only use 400MB(Tested on 4GB ddr3 ram) and 2% CPU
