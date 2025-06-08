@@ -1,0 +1,116 @@
+configuration {
+    show-icons:        true;
+    icon-theme:        "Papirus-Dark";
+    drun-icon-theme:   "Papirus-Dark";
+    scroll-method:     1;  /* per-row scrolling */
+}
+
+/* Global colors & shape */
+* {
+    background:                  #000000;
+    foreground:                  #ff0000;
+    selected-normal-background:  #ff0000;
+    selected-normal-foreground:  #000000;
+    alternate-normal-background: #000000;
+    alternate-normal-foreground: #ff0000;
+    border-radius:               10px;
+    scrollbar:                   false;
+    padding:                     5px;
+    spacing:                     5px;
+}
+
+/* Window frame */
+window {
+    background-color: #000000;
+    border:           0;
+    padding:          10px;
+    border-radius:    10px;
+}
+
+/* Search bar */
+inputbar {
+    children:        [ "prompt", "entry" ];
+    spacing:         2px;
+    margin:          0 0 5px 0;
+    border-radius:   10px;
+    background-color: @background;
+}
+
+prompt {
+    enabled:         true;
+    message:         " ";
+    text-color:      @foreground;
+    padding:         5px 10px;
+    border-radius:   10px 0 0 10px;
+    background-color: @background;
+}
+
+entry {
+    enabled:            true;
+    text-color:         @foreground;
+    padding:            5px 10px;
+    margin:             0;
+    border-radius:      0 10px 10px 0;
+    background-color:   @background;
+}
+
+/* Layout: search + list */
+mainbox {
+    background-color: #000000;
+    children:         [ "inputbar", "listview" ];
+    spacing:          5px;
+    border-radius:    10px;
+}
+
+/* Only 5 items shown; one-row scroll; no scrollbar */
+listview {
+    background-color: #000000;
+    lines:            5;
+    columns:          1;
+    spacing:          2px;
+    fixed-height:     true;
+    dynamic:          false;
+    scrollbar:        false;
+    border-radius:    10px;
+}
+
+/* Rows with icons */
+element.normal {
+    orientation:      horizontal;
+    children:         [ element-icon, element-text ];
+    spacing:          5px;
+    background-color: @background;
+    text-color:       @foreground;
+    padding:          5px;
+    border-radius:    10px;
+}
+
+element.alternate.normal {
+    orientation:      horizontal;
+    children:         [ element-icon, element-text ];
+    spacing:          5px;
+    background-color: @alternate-normal-background;
+    text-color:       @alternate-normal-foreground;
+    padding:          5px;
+    border-radius:    10px;
+}
+
+element.selected.normal {
+    background-color: @selected-normal-background;
+    text-color:       @selected-normal-foreground;
+}
+
+/* Icon sizing & text alignment */
+element-icon {
+    size: 1.5em;
+}
+
+element-text {
+    vertical-align: 0.5;
+}
+
+/* Inherit to avoid white fallbacks */
+element-text, element-icon {
+    background-color: inherit;
+    text-color:       inherit;
+}
